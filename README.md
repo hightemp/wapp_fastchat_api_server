@@ -45,4 +45,4 @@ content-type: application/json
 
 ## Скриншоты
 
-![](images/2023-04-12_18-16.png)
+![](images/2023-04-12_18-23.png)

@@ -114,7 +114,8 @@ body, html {
   margin: 3px;
   padding: 6px;
   border-radius: 5px;
-  white-space: pre-line;
+  white-space: pre-wrap;
+  font-family: monospace;
 }
 .message-user {
   background: rgb(174, 243, 174);
