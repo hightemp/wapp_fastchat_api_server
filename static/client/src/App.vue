@@ -28,6 +28,8 @@
 <script>
 import axios from 'axios'
 
+axios.defaults.timeout = 1000 * 60 * 30;
+
 export default {
   name: 'App',
   components: {
@@ -52,6 +54,7 @@ export default {
   methods: {
     sendPromtMessage() {
       var promt = this.promt
+      var self = this
       this.promt = ""
       this.messages.splice(0, 0, { type: "user", timestamp: (new Date()), message: promt })
       this.showWaitMessage = true
@@ -59,20 +62,19 @@ export default {
       axios({
         method: "post",
         url: '/predict', 
-        timeout: 1000 * 300,
         data: {
           text: promt
         },
       })
       .then(function (response) {
         console.log(response);
-        this.messages.splice(0, 0, { type: "ai", timestamp: (new Date()), message: response.text })
-        this.showWaitMessage = false
+        self.messages.splice(0, 0, { type: "ai", timestamp: (new Date()), message: response.data.result[0] })
+        self.showWaitMessage = false
       })
       .catch(function (error) {
         console.log(error);
-        this.showErrorMessage = true
-        this.errorMessage = error
+        self.showErrorMessage = true
+        self.errorMessage = error
       });
     }
   }

@@ -15,6 +15,11 @@
 model_name = "/home/hightemp/ForTesting/FastChat/vicuna_7b/"
 ```
 
+## Модели
+
+- Можно скачать Vicuna 13B: https://rentry.co/nur779
+- Утилиты для ковертирования модели `convert_llama_weights_to_hf.py`: https://github.com/lm-sys/FastChat
+
 ## Пример запроса
 
 ```
@@ -37,3 +42,7 @@ content-type: application/json
     ]
 }
 ```
+
+## Скриншоты
+
+![](images/2023-04-12_18-16.png)
